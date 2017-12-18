@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Telegram_bot_QUEST.iml" filepath="$PROJECT_DIR$/.idea/modules/Telegram_bot_QUEST.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Telegram_bot_QUEST_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Telegram_bot_QUEST_main.iml" group="Telegram_bot_QUEST" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Telegram_bot_QUEST_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Telegram_bot_QUEST_test.iml" group="Telegram_bot_QUEST" />
+    </modules>
+  </component>
+</project>
