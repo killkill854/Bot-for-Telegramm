@@ -8,6 +8,6 @@ public class MeetBalls extends Eda {
 
     @Override
     int getPrice1() {
-        return 0;
+        return 1;
     }
 }

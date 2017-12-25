@@ -16,13 +16,18 @@ User user;
 boolean codeMode;
 boolean eat;
 int pizza = 2;
+boolean shariki;
+int StShariki = 1;
+static String[] languages   = {"Java", "Kotlin", "Paskal", "BananaLanguage", "C++"};
+public    boolean[] knowLanguage = {true, false, false, false, false};
+boolean LanguageMode;
 
     @Override
     public void onUpdateReceived(Update update) {
         if (update.getMessage().hasText()) {
             String text = update.getMessage().getText();
             long chatId = update.getMessage().getChatId();
-            sendText(text, chatId);
+
             if (codeMode == true){
                 user.dollars += text.length();
                 nextDay(chatId);
@@ -31,6 +36,23 @@ int pizza = 2;
                int count = Integer.parseInt(text);
                 user.dollars -= count * pizza;
                 nextDay(chatId);
+                shariki = false;
+            }else if (shariki == true){
+               int count = Integer.parseInt(text);
+                user.dollars -= count * StShariki;
+                nextDay(chatId);
+                shariki = false;
+            }else if (LanguageMode == true){
+                for (int i = 0; i < languages.length; i++) {
+                    if (languages[i].equals(text)) {
+                        user.knowLanguage[i] = true;
+                        user.dollars -= 100;
+                    }
+
+                }
+                nextDay(chatId);
+                LanguageMode = false;
+
             }
             else  if (text.equals("/newgame")){
                 newGame(chatId);
@@ -41,6 +63,17 @@ int pizza = 2;
                 eat = true;
                 sendText("Сколько кусков пиццы?", chatId);
 
+            }else if (text.equals("/shariki")){
+                shariki = true;
+                sendText("Кол-во шариков?", chatId);
+
+            }else if (text.equals("/language")){
+                sendText("Какой язык будем учить?", chatId);
+                LanguageMode = true;
+
+
+            }else {
+                sendText(text, chatId);
             }
         }else if (update.getMessage().hasPhoto()){
             String photo = update.getMessage().getPhoto().get(0).getFileId();
@@ -58,7 +91,7 @@ int pizza = 2;
     private void nextDay(long chatId){
         day++;
         sendText("Day number "+ day, chatId);
-        sendTextKeyboard(user.getInfo(), chatId, "/code", "/eda");
+        sendTextKeyboard(user.getInfo(), chatId, "/cod", "/eda", "/shariki", "/language");
     }
 
     @Override

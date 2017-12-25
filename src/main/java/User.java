@@ -24,6 +24,7 @@ public class User {
     }
 
 
+
 //    void напечатайИзвестныеЯзыки() {
 //        System.out.println("Вы знаете следующие языки: ");
 //        for (int i = 0; i < Main.languages.length; i++) {
